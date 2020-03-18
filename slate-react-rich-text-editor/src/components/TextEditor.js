@@ -1,11 +1,18 @@
-import React, { useEffect, useMemo, useState, Component } from "react";
-import { Editor } from 'slate-react'
-import { Value } from 'slate'
+import React, { useState, Component } from "react";
+import { Editor } from 'slate'
+
 
 export default class TextEditor extends Component {
 
+    const [value, setValue] = useState([
+        {
+          type: 'paragraph',
+          children: [{ text: 'A line of text in a paragraph.' }],
+        },
+    ])
+
     state = {
-        value: '',
+        value: "TEste",
     }
 
     onChange = ({ value }) => {
@@ -14,7 +21,7 @@ export default class TextEditor extends Component {
 
     render() {
         return (
-            <Editor value={this.state.value} onChange={this.onChange} />
+            <Editor value={value} onChange={value => setValue(value)} />
         )
     }
 }
