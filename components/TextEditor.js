@@ -11,4 +11,10 @@ export default class TextEditor extends Component {
     onChange = ({ value }) => {
         this.setState({ value })
     }
+
+    render() {
+        return (
+            <Editor value={this.state.value} onChange={this.onChange} />
+        )
+    }
 }
